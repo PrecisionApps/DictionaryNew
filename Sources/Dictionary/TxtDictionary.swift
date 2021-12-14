@@ -180,9 +180,9 @@ public class TxtDictionary: Dictionary{
     - Parameter fileName : File name input.
     */
     public func __loadFromText(fileName: String){
-        let thisSourceFile = URL(fileURLWithPath: #file)
-        let thisDirectory = thisSourceFile.deletingLastPathComponent()
-        let url = thisDirectory.appendingPathComponent(fileName)
+        let url =  Bundle.main.url(forResource: String(fileName.prefix(while: { character in
+            character != "."
+        })), withExtension: "txt")!
         do{
             let fileContent = try String(contentsOf: url, encoding: .utf8)
             let lines : [String] = fileContent.split(whereSeparator: \.isNewline).map(String.init)
@@ -208,9 +208,9 @@ public class TxtDictionary: Dictionary{
     - Parameter fileName : File name input.
     */
     public func __loadMisspelledWords(fileName: String){
-        let thisSourceFile = URL(fileURLWithPath: #file)
-        let thisDirectory = thisSourceFile.deletingLastPathComponent()
-        let url = thisDirectory.appendingPathComponent(fileName)
+        let url =  Bundle.main.url(forResource: String(fileName.prefix(while: { character in
+            character != "."
+        })), withExtension: "txt")!
         do{
             let fileContent = try String(contentsOf: url, encoding: .utf8)
             let lines : [String] = fileContent.split(whereSeparator: \.isNewline).map(String.init)
