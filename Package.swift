@@ -21,10 +21,10 @@ let package = Package(
             name: "Dictionary-KaanOzge",
             dependencies: ["Math"],
             resources: [
-            .copy("Dictionary/mixedcase.txt"),
-            .copy("Dictionary/lowercase.txt"),
-            .copy("Dictionary/turkish_dictionary.txt"),
-            .copy("Dictionary/turkish_misspellings.txt")]),
+            .copy("mixedcase.txt"),
+            .copy("lowercase.txt"),
+            .copy("turkish_dictionary.txt"),
+            .copy("turkish_misspellings.txt")]),
         .testTarget(
             name: "DictionaryTests",
             dependencies: ["Dictionary-KaanOzge"]),
